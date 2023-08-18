@@ -1,13 +1,12 @@
-export const rateToClassSuffix = (rate: number) => {
-  if (rate <= 0.2) return "0";
-  if (rate <= 0.7) return "0-5";
-  if (rate <= 1.2) return "1";
-  if (rate <= 1.7) return "1-5";
-  if (rate <= 2.2) return "2";
-  if (rate <= 2.7) return "2-5";
-  if (rate <= 3.2) return "3";
-  if (rate <= 3.7) return "3-5";
-  if (rate <= 4.2) return "4";
-  if (rate <= 4.7) return "4-5";
-  return "5";
+export const rateToClassSuffix = (rate: number): string => {
+  const tenfold = rate * 10;
+  const ten = Math.floor(tenfold / 10);
+  const one = tenfold % 10;
+  if (one <= 2) {
+    return `${ten}`;
+  } else if (one <= 7) {
+    return `${ten}-5`;
+  } else {
+    return `${ten + 1}`;
+  }
 };
