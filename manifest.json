@@ -11,7 +11,22 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://www.amazon.co.jp/*"],
+      "matches": [
+        "*://*.amazon.com/*",
+        "*://*.amzn.com/*",
+        "*://*.amazon.co.uk/*",
+        "*://*.amazon.de/*",
+        "*://*.amazon.fr/*",
+        "*://*.amazon.it/*",
+        "*://*.amazon.ca/*",
+        "*://*.amazon.com.mx/*",
+        "*://*.amazon.es/*",
+        "*://*.amazon.co.jp/*",
+        "*://*.amazon.in/*",
+        "*://*.amazon.com.br/*",
+        "*://*.amazon.nl/*",
+        "*://*.amazon.com.au/*"
+      ],
       "js": ["src/contentScript.tsx"],
       "run_at": "document_end"
     }
