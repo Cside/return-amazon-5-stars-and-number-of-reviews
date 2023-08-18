@@ -22,8 +22,9 @@ for (const container of document.querySelectorAll(
       console.error("firstChild.textContent is null", firstChild);
       continue;
     }
-    rate = firstChild.textContent.replace(",", ".");
+    rate = firstChild.textContent;
   }
+  rate = rate.replace(",", ".");
   if (!isValidRate(rate)) {
     console.error(`rate is not valid: ${rate}`, container);
     continue;
