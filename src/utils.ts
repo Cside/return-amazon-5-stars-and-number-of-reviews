@@ -1,4 +1,4 @@
-export const rateToClassSuffix = (rate: number): string => {
+export const rateToClassSuffix = (rate: number) => {
   const tenfold = rate * 10;
   const ten = Math.floor(tenfold / 10);
   const one = tenfold % 10;
@@ -10,3 +10,6 @@ export const rateToClassSuffix = (rate: number): string => {
     return `${ten + 1}`;
   }
 };
+
+export const isValidRate = (rateStr: string) =>
+  !!rateStr.match(/^[0-9](?:\.[0-9])?$/);
