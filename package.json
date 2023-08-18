@@ -4,7 +4,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "test": "vitest --run",
-    "package": "pnpm run build && zip -r dist.zip dist"
+    "package": "rm dist*.zip && pnpm run build && zip -r dist-\"$(jq -r .version < manifest.json  | sed 's/\\./-/g')\".zip dist"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^1.0.14",
