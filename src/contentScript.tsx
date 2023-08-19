@@ -1,8 +1,9 @@
+import querySelectorAllWithHas from "./hasPolyfill";
 import { isValidRate, rateToClassNameSuffix } from "./utils";
 
 const CLASS_NAME_SINGLE_STAR = "puis-review-star-single";
 
-for (const container of document.querySelectorAll(
+for (const container of querySelectorAllWithHas(
   `span[aria-label]:has(.${CLASS_NAME_SINGLE_STAR})`
 )) {
   const firstChild = container.firstChild;
@@ -20,7 +21,7 @@ for (const container of document.querySelectorAll(
     console.error(`rate is not valid: ${rate}`, container);
     continue;
   }
-  const i = container.querySelector(`i.${CLASS_NAME_SINGLE_STAR}`);
+  const i = (container as Element).querySelector(`i.${CLASS_NAME_SINGLE_STAR}`);
   if (i === null) {
     console.error(`i.${CLASS_NAME_SINGLE_STAR} is not found`, container);
     continue;

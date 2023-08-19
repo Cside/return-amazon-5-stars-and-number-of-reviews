@@ -2,9 +2,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build:chrome": "tsc && vite build",
+    "build:firefox": "./scripts/build-firefox.sh",
     "test": "vitest --run",
-    "package": "rm dist*.zip && pnpm run build && zip -r dist-\"$(jq -r .version < manifest.json  | sed 's/\\./-/g')\".zip dist"
+    "package:chrome": "rm dist*.zip && pnpm run build && zip -r dist-\"$(jq -r .version < manifest.json  | sed 's/\\./-/g')\".zip dist",
+    "package:firefox": "./scripts/package-firefox.sh"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^1.0.14",
