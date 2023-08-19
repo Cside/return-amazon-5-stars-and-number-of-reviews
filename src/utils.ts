@@ -1,4 +1,4 @@
-export const rateToClassSuffix = (rate: number) => {
+export const rateToClassNameSuffix = (rate: number) => {
   const tenfold = rate * 10;
   const ten = Math.floor(tenfold / 10);
   const one = tenfold % 10;

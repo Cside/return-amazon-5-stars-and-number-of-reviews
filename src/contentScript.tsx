@@ -1,7 +1,9 @@
-import { isValidRate, rateToClassSuffix } from "./utils";
+import { isValidRate, rateToClassNameSuffix } from "./utils";
+
+const CLASS_NAME_SINGLE_STAR = "puis-review-star-single";
 
 for (const container of document.querySelectorAll(
-  "span[aria-label]:has(.puis-review-star-single)"
+  `span[aria-label]:has(.${CLASS_NAME_SINGLE_STAR})`
 )) {
   const firstChild = container.firstChild;
   if (firstChild === null) {
@@ -18,11 +20,11 @@ for (const container of document.querySelectorAll(
     console.error(`rate is not valid: ${rate}`, container);
     continue;
   }
-  const i = container.querySelector("i.puis-review-star-single");
+  const i = container.querySelector(`i.${CLASS_NAME_SINGLE_STAR}`);
   if (i === null) {
-    console.error("i.puis-review-star-single is not found", container);
+    console.error(`i.${CLASS_NAME_SINGLE_STAR} is not found`, container);
     continue;
   }
-  i.classList.remove("puis-review-star-single");
-  i.classList.add("a-star-small-" + rateToClassSuffix(Number(rate)));
+  i.classList.remove(CLASS_NAME_SINGLE_STAR);
+  i.classList.add("a-star-small-" + rateToClassNameSuffix(Number(rate)));
 }
