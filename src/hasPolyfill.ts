@@ -32,7 +32,7 @@ export default function querySelectorAllWithHas(
  *
  * @param selector A CSS selector possibly containing :has()
  */
-export function getHasInnerSelector(selector: string): string | boolean {
+function getHasInnerSelector(selector: string): string | boolean {
   const matches = /:has\((.*)\)/.exec(selector);
 
   if (!matches || matches[1] === undefined) {
@@ -48,7 +48,7 @@ export function getHasInnerSelector(selector: string): string | boolean {
  * @param dom       Element
  * @param selector  Selector
  */
-export function getNodesInCurrentScope(
+function getNodesInCurrentScope(
   dom: Element | Document,
   selector: string,
 ): NodeList {
@@ -72,7 +72,7 @@ function getCurrentScopeSelector(selector: string): string {
  * @param nodes     Filtered nodes from the prior scope.
  * @param selector  The inner :has() selector
  */
-export function filterNodesInScopeByHasSelector(
+function filterNodesInScopeByHasSelector(
   nodes: NodeList,
   selector: string,
 ): Node[] {
