@@ -22,7 +22,7 @@ export const matchPatternsToHostSuffix = (matchPatterns: string[]) => {
     if (!matched || matched[1] === undefined)
       throw new Error(`Invalid match pattern: ${matchPattern}`);
 
-    suffixes.push(matched[1].replaceAll("*.", ""));
+    suffixes.push(matched[1].replaceAll('*.', ''));
   }
   return [...new Set(suffixes)];
 };
