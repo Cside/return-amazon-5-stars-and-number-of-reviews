@@ -37,7 +37,7 @@
         "*://*.amazon.sa/*",
         "*://*.amazon.com.be/*"
       ],
-      "js": ["src/contentScript.tsx"],
+      "js": ["src/contentScript.ts"],
       "run_at": "document_end"
     }
   ],
