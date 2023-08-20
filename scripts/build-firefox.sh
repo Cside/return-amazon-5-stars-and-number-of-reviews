@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -eux
 
-npx tsc
 rm -rf dist-firefox
 npx vite build --outDir dist-firefox
 
