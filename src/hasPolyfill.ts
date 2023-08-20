@@ -11,7 +11,7 @@
  */
 export default function querySelectorAllWithHas(
   selector: string,
-  dom?: Element
+  dom?: Element,
 ): Node[] {
   const node = dom || document;
 
@@ -50,7 +50,7 @@ export function getHasInnerSelector(selector: string): string | Boolean {
  */
 export function getNodesInCurrentScope(
   dom: Element | Document,
-  selector: string
+  selector: string,
 ): NodeList {
   const currentScopeSelector = getCurrentScopeSelector(selector);
 
@@ -63,7 +63,7 @@ export function getNodesInCurrentScope(
  * @param selector
  */
 function getCurrentScopeSelector(selector: string): string {
-  return selector.slice(0, selector.indexOf(":has("));
+  return selector.slice(0, selector.indexOf(':has('));
 }
 
 /**
@@ -74,7 +74,7 @@ function getCurrentScopeSelector(selector: string): string {
  */
 export function filterNodesInScopeByHasSelector(
   nodes: NodeList,
-  selector: string
+  selector: string,
 ): Node[] {
   let method: Function;
 
@@ -86,7 +86,7 @@ export function filterNodesInScopeByHasSelector(
 }
 
 function selectorHasDirectDescendant(selector: string): Boolean {
-  return selector.trim().slice(0, 1) === ">";
+  return selector.trim().slice(0, 1) === '>';
 }
 
 function scrubDirectDescendantFromSelector(selector: string): string {
@@ -99,7 +99,7 @@ function filterNode(node: Element, selector: string): Boolean {
 
 function filterNodeWithDirectDescendants(
   node: Element,
-  selector: string
+  selector: string,
 ): Boolean {
   return Array.from((<Element>node).children).some((child) => {
     return child.matches(scrubDirectDescendantFromSelector(selector));
