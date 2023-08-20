@@ -1,4 +1,8 @@
-import { isValidRate, rateToClassNameSuffix } from "./utils";
+import {
+  isValidRate,
+  matchPatternsToHostSuffix,
+  rateToClassNameSuffix,
+} from "./utils";
 
 describe(rateToClassNameSuffix.name + "()", () => {
   test.each([
@@ -44,5 +48,32 @@ describe(isValidRate.name + "()", () => {
     { input: "1.1.1", expected: false },
   ])("$input -> $expected", ({ input, expected }) => {
     expect(isValidRate(input)).toBe(expected);
+  });
+});
+
+describe(matchPatternsToHostSuffix.name + "()", () => {
+  test.each([
+    {
+      name: "glob",
+      input: ["*://*.amazon.co.uk/*", "*://*.amazon.de/*", "*://*.amazon.fr/*"],
+      expected: ["amazon.co.uk", "amazon.de", "amazon.fr"],
+    },
+    {
+      name: "uniq",
+      input: [
+        "https://b.hatena.ne.jp/",
+        "https://b.hatena.ne.jp/?*",
+        "https://b.hatena.ne.jp/hotentry*",
+        "https://b.hatena.ne.jp/entrylist*",
+      ],
+      expected: ["b.hatena.ne.jp"],
+    },
+    {
+      name: "long path",
+      input: ["https://b.hatena.ne.jp/foo/bar"],
+      expected: ["b.hatena.ne.jp"],
+    },
+  ])("$name", ({ input, expected }) => {
+    expect(matchPatternsToHostSuffix(input)).toEqual(expected);
   });
 });

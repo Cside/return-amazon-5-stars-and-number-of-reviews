@@ -31,5 +31,10 @@
       "js": ["src/contentScript.tsx"],
       "run_at": "document_end"
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "src/background.ts",
+    "type": "module"
+  },
+  "permissions": ["webNavigation"]
 }
