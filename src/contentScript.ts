@@ -1,4 +1,4 @@
-import querySelectorAllWithHas from './hasPolyfill';
+import querySelectorAllWithHas from 'polyfill-css-has';
 import { isValidRate, rateToClassNameSuffix } from './utils';
 
 const CLASS_NAME_SINGLE_STAR = 'puis-review-star-single';
