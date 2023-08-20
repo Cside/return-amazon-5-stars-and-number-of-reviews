@@ -1,6 +1,6 @@
-import { isValidRate, rateToClassSuffix } from "./utils";
+import { isValidRate, rateToClassNameSuffix } from "./utils";
 
-describe(rateToClassSuffix.name + "()", () => {
+describe(rateToClassNameSuffix.name + "()", () => {
   test.each([
     { input: 0.0, expected: "0" },
     { input: 0.1, expected: "0" },
@@ -25,7 +25,7 @@ describe(rateToClassSuffix.name + "()", () => {
     { input: 4.9, expected: "5" },
     { input: 5.0, expected: "5" },
   ])("$input -> $expected", ({ input, expected }) => {
-    expect(rateToClassSuffix(input)).toBe(expected);
+    expect(rateToClassNameSuffix(input)).toBe(expected);
   });
 });
 
