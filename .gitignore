@@ -16,6 +16,7 @@ dist-ssr
 *.local
 
 .git-pr-release
+.extension-id
 
 # Editor directories and files
 .vscode/*
