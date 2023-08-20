@@ -3,6 +3,6 @@
     "message": "Amazon の星を 5 つに戻す"
   },
   "DESCRIPTION": {
-    "message": "Amazon の評価の星のデザインを以前の 5 つに戻す"
+    "message": "Amazon の評価の星のデザインを、現在の星が 1 つだけのものから、以前の 5 つのものに戻す"
   }
 }
