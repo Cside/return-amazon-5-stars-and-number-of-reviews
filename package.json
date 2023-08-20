@@ -5,7 +5,7 @@
     "build:chrome": "tsc && vite build",
     "build:firefox": "./scripts/build-firefox.sh",
     "test": "vitest --run",
-    "package:chrome": "rm dist*.zip && pnpm run build && zip -r dist-\"$(jq -r .version < manifest.json  | sed 's/\\./-/g')\".zip dist",
+    "package:chrome": "rm -f dist*.zip && pnpm run build:chrome && zip -r dist-\"$(jq -r .version < manifest.json  | sed 's/\\./-/g')\".zip dist",
     "package:firefox": "./scripts/package-firefox.sh"
   },
   "devDependencies": {
