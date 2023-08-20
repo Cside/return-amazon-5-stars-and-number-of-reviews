@@ -14,6 +14,7 @@
     "package": "run-s package:*",
     "package:chrome": "./scripts/package-chrome.sh",
     "package:firefox": "./scripts/package-firefox.sh",
+    "check:types": "tsc --noEmit",
     "check": "run-p -c test lint check:*"
   },
   "devDependencies": {
