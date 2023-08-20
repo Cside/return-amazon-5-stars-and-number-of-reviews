@@ -26,7 +26,16 @@
         "*://*.amazon.in/*",
         "*://*.amazon.com.br/*",
         "*://*.amazon.nl/*",
-        "*://*.amazon.com.au/*"
+        "*://*.amazon.com.au/*",
+        "*://*.amazon.ae/*",
+        "*://*.amazon.eg/*",
+        "*://*.amazon.pl/*",
+        "*://*.amazon.se/*",
+        "*://*.amazon.sg/*",
+        "*://*.amazon.com.tr/*",
+        "*://*.amazon.cn/*",
+        "*://*.amazon.sa/*",
+        "*://*.amazon.com.be/*"
       ],
       "js": ["src/contentScript.tsx"],
       "run_at": "document_end"
