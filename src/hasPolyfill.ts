@@ -35,7 +35,7 @@ export default function querySelectorAllWithHas(
 export function getHasInnerSelector(selector: string): string | Boolean {
   const matches = /:has\((.*)\)/.exec(selector);
 
-  if (!matches) {
+  if (!matches || matches[1] === undefined) {
     return false;
   }
 
