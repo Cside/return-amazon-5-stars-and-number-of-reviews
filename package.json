@@ -10,6 +10,7 @@
     "lint:prettier": "prettier --check .",
     "lint-fix:prettier": "prettier --write .",
     "lint": "run-p -c lint:*",
+    "lint-fix": "run-p -c lint-fix:*",
     "package": "run-s package:*",
     "package:chrome": "./scripts/package-chrome.sh",
     "package:firefox": "./scripts/package-firefox.sh",

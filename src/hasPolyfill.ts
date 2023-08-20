@@ -32,7 +32,7 @@ export default function querySelectorAllWithHas(
  *
  * @param selector A CSS selector possibly containing :has()
  */
-export function getHasInnerSelector(selector: string): string | Boolean {
+export function getHasInnerSelector(selector: string): string | boolean {
   const matches = /:has\((.*)\)/.exec(selector);
 
   if (!matches || matches[1] === undefined) {
@@ -76,16 +76,14 @@ export function filterNodesInScopeByHasSelector(
   nodes: NodeList,
   selector: string,
 ): Node[] {
-  let method: Function;
-
-  method = selectorHasDirectDescendant(selector)
+  const method = selectorHasDirectDescendant(selector)
     ? filterNodeWithDirectDescendants
     : filterNode;
 
   return Array.from(nodes).filter((node) => method(<Element>node, selector));
 }
 
-function selectorHasDirectDescendant(selector: string): Boolean {
+function selectorHasDirectDescendant(selector: string): boolean {
   return selector.trim().slice(0, 1) === '>';
 }
 
@@ -93,14 +91,14 @@ function scrubDirectDescendantFromSelector(selector: string): string {
   return selector.trim().slice(1).trim();
 }
 
-function filterNode(node: Element, selector: string): Boolean {
+function filterNode(node: Element, selector: string): boolean {
   return !!node.querySelector(selector);
 }
 
 function filterNodeWithDirectDescendants(
   node: Element,
   selector: string,
-): Boolean {
+): boolean {
   return Array.from((<Element>node).children).some((child) => {
     return child.matches(scrubDirectDescendantFromSelector(selector));
   });
