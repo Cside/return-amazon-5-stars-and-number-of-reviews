@@ -28,9 +28,9 @@ describe(rateToClassNameSuffix.name + '()', () => {
     { input: 4.8, expected: '5' },
     { input: 4.9, expected: '5' },
     { input: 5.0, expected: '5' },
-  ])('$input -> $expected', ({ input, expected }) => {
-    expect(rateToClassNameSuffix(input)).toBe(expected);
-  });
+  ])('$input -> $expected', ({ input, expected }) =>
+    expect(rateToClassNameSuffix(input)).toBe(expected),
+  );
 });
 
 describe(isValidRate.name + '()', () => {
@@ -46,9 +46,9 @@ describe(isValidRate.name + '()', () => {
     { input: '.1', expected: false },
     { input: '1.1.', expected: false },
     { input: '1.1.1', expected: false },
-  ])('$input -> $expected', ({ input, expected }) => {
-    expect(isValidRate(input)).toBe(expected);
-  });
+  ])('$input -> $expected', ({ input, expected }) =>
+    expect(isValidRate(input)).toBe(expected),
+  );
 });
 
 describe(matchPatternsToHostSuffix.name + '()', () => {
@@ -73,7 +73,7 @@ describe(matchPatternsToHostSuffix.name + '()', () => {
       input: ['https://b.hatena.ne.jp/foo/bar'],
       expected: ['b.hatena.ne.jp'],
     },
-  ])('$name', ({ input, expected }) => {
-    expect(matchPatternsToHostSuffix(input)).toEqual(expected);
-  });
+  ])('$name', ({ input, expected }) =>
+    expect(matchPatternsToHostSuffix(input)).toEqual(expected),
+  );
 });
