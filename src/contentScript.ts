@@ -5,6 +5,8 @@ import {
 } from './utils';
 
 const main = () => {
+  // HTML structure:
+  //  https://www.notion.so/c7a89d18be974588a0ef9f8d5a6eacb1#88338a6e482248489c849129896c9e2f
   for (const container of querySelectorAllWithHas(
     `.a-row.a-size-small:has(> [aria-label])`,
   )) {
@@ -14,25 +16,29 @@ const main = () => {
       const singleStar = container.querySelector(`i.${classNameSingleStar}`);
       if (singleStar) {
         const rateStarContainer = container.firstElementChild;
-        if (rateStarContainer === null)
+        if (!rateStarContainer)
           throw new Error('container.firstElementChild is null');
 
         const rateContainer = rateStarContainer.firstElementChild;
-        if (rateContainer === null)
+        if (!rateContainer)
           throw new Error('rateContainer.firstChild is not found');
         const textContent = rateContainer.textContent;
         if (textContent === null)
           throw new Error('rateContainer.textContent is null');
 
         const rate = textContent.replace(',', '.');
-        if (!isValidRate(rate)) throw new Error(`rate is not valid: ${rate}`);
+        if (!isValidRate(rate)) throw new Error(`Invalid rate: ${rate}`);
 
         singleStar.classList.remove(classNameSingleStar);
         singleStar.classList.add(
           'a-star-small-' + rateToClassNameSuffix(Number(rate)),
         );
       }
+    } catch (error) {
+      console.error(error, container);
+    }
 
+    try {
       // レビューの数を復活させる
       const countLinkContainer = container.children[1];
       if (countLinkContainer === undefined)
@@ -41,24 +47,33 @@ const main = () => {
       const countContainer = countLinkContainer.querySelector('span');
       if (!countContainer)
         throw new Error(
-          "container.children[0].querySelector('span') is not found",
+          "countLinkContainer.querySelector('span') is not found",
         );
 
       if (countContainer.textContent === '') {
         const count = countLinkContainer.getAttribute('aria-label');
         if (count === null)
           throw new Error(
-            "countLinkContainer.getAttribute('aria-label') is null",
+            "countLinkContainer doesn't have aria-label attribute",
           );
         countContainer.append(count);
 
         // パーセンテージがあれば消す
-      }
+        const percentageContainer = container.children[2];
+        if (percentageContainer) {
+          const percentage = percentageContainer.getAttribute('aria-label');
+          if (percentage === null)
+            throw new Error(
+              "percentageContainer doesn't have aria-label attribute",
+            );
+          if (!percentage.match(/%/))
+            throw new Error(`Invalid percentage message: ${percentage}`);
 
-      // TOOD: 個別 try{} したほうがいい？
+          percentageContainer.remove();
+        }
+      }
     } catch (error) {
       console.error(error, container);
-      continue;
     }
   }
 };
