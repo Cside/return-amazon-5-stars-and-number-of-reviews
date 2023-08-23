@@ -37,12 +37,12 @@
         "*://*.amazon.sa/*",
         "*://*.amazon.com.be/*"
       ],
-      "js": ["src/contentScript.ts"],
+      "js": ["src/contentScript/main.ts"],
       "run_at": "document_end"
     }
   ],
   "background": {
-    "service_worker": "src/background.ts",
+    "service_worker": "src/background/main.ts",
     "type": "module"
   },
   "permissions": ["webNavigation"]

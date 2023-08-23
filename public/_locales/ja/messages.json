@@ -1,8 +1,8 @@
 {
   "NAME": {
-    "message": "Amazon の星を 5 つに戻す"
+    "message": "Amazon の星とレビュー件数を元に戻す"
   },
   "DESCRIPTION": {
-    "message": "Amazon の評価の星のデザインを、現在の星が 1 つだけのものから、以前の 5 つのものに戻す"
+    "message": "Amazon の旧デザインの星と、レビューの件数を再び表示します"
   }
 }
