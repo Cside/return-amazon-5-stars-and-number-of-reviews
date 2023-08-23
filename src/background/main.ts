@@ -1,4 +1,4 @@
-import manifest from '../manifest.json';
+import manifest from '../../manifest.json';
 import { matchPatternsToHostSuffix } from './utils';
 
 if (manifest.content_scripts[0] === undefined)
