@@ -11,7 +11,7 @@ const main = () => {
     `.a-row.a-size-small:has(> [aria-label])`,
   )) {
     try {
-      // 一桁星を元に戻す（旧デザインの場合は何もしない）
+      // Change 1 -> 5 stars
       const classNameSingleStar = 'puis-review-star-single';
       const singleStar = container.querySelector(`i.${classNameSingleStar}`);
       if (singleStar) {
@@ -39,7 +39,7 @@ const main = () => {
     }
 
     try {
-      // レビューの数を復活させる
+      // Restore review count
       const countLinkContainer = container.children[1];
       if (countLinkContainer === undefined)
         throw new Error('container.children[1] is not found');
@@ -58,7 +58,7 @@ const main = () => {
           );
         countContainer.append(count);
 
-        // パーセンテージがあれば消す
+        // Remove percentage sentence
         const percentageContainer = container.children[2];
         if (percentageContainer) {
           const percentage = percentageContainer.getAttribute('aria-label');
