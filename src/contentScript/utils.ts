@@ -4,10 +4,6 @@ export const querySelectorAllWithHas = (
   ...params: Parameters<typeof _querySelectorAllWithHas>
 ) => _querySelectorAllWithHas(...params) as Element[];
 
-export const querySelectorWithHas = (
-  ...params: Parameters<typeof _querySelectorAllWithHas>
-) => querySelectorAllWithHas(...params)[0] ?? null;
-
 export const isValidRate = (rateStr: string) => {
   if (rateStr === '') return false;
 
