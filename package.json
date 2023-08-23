@@ -4,6 +4,9 @@
     "dev": "vite",
     "build:chrome": "tsc && vite build",
     "build:firefox": "./scripts/build-firefox.sh",
+    "package": "run-s package:*",
+    "package:chrome": "./scripts/package-chrome.sh",
+    "package:firefox": "./scripts/package-firefox.sh",
     "test": "vitest --run",
     "lint:eslint": "eslint './src/**/*.ts'",
     "lint-fix:eslint": "eslint --fix './src/**/*.ts'",
@@ -11,9 +14,6 @@
     "lint-fix:prettier": "prettier --write .",
     "lint": "run-p -c lint:*",
     "lint-fix": "run-p -c lint-fix:*",
-    "package": "run-s package:*",
-    "package:chrome": "./scripts/package-chrome.sh",
-    "package:firefox": "./scripts/package-firefox.sh",
     "check:types": "tsc --noEmit",
     "check:ng-word": "./scripts/check-ng-words.sh",
     "check:unused-exports": "ts-prune -e",
@@ -36,5 +36,8 @@
     "vite": "^4.4.5",
     "vitest": "^0.34.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "polyfill-css-has": "github:Cside/polyfill-css-has"
+  }
 }
