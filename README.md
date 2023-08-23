@@ -1,4 +1,4 @@
-# Classic Amazon Five Stars ( Chrome Extension / Firefox Addon )
+# Restore Amazon Review Stars & Count ( Chrome Extension / Firefox Addon )
 
 [Chrome Web Store](https://chrome.google.com/webstore/detail/nahhbhpfahionfaobhlmoldlicdaoddg)
 
