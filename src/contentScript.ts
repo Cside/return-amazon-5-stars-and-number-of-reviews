@@ -16,24 +16,22 @@ const main = () => {
     `.a-row.a-size-small:has(> [aria-label])`,
   )) {
     try {
-      // 一桁星を元に戻す
-      // 旧デザインの場合は何もしない
+      // 一桁星を元に戻す（旧デザインの場合は何もしない）
       const classNameSingleStar = 'puis-review-star-single';
       const singleStar = container.querySelector(`i.${classNameSingleStar}`);
       if (singleStar) {
-        const rateStarContainer = container.firstChild;
+        const rateStarContainer = container.firstElementChild;
         if (rateStarContainer === null)
-          throw new Error('container.firstChild is null');
+          throw new Error('container.firstElementChild is null');
 
-        const rateContainer = rateStarContainer.firstChild;
+        const rateContainer = rateStarContainer.firstElementChild;
         if (rateContainer === null)
           throw new Error('rateContainer.firstChild is not found');
-        if (rateContainer.textContent === null)
+        const textContent = rateContainer.textContent;
+        if (textContent === null)
           throw new Error('rateContainer.textContent is null');
-        if (!(rateContainer instanceof Element))
-          throw new Error('rateContainer is not a instance of Element');
 
-        const rate = rateContainer.textContent.replace(',', '.');
+        const rate = textContent.replace(',', '.');
         if (!isValidRate(rate)) throw new Error(`rate is not valid: ${rate}`);
 
         singleStar.classList.remove(classNameSingleStar);
@@ -42,14 +40,29 @@ const main = () => {
         );
       }
 
-      // // // restore number of reviews
-      // console.log(
-      //   querySelectorAllWithRegexp(
-      //     'span',
-      //     ['aria-label', new RegExp('^[0-9][0-9,.][0-9]$')],
-      //     container.parentElement as Element,
-      //   ),
-      // );
+      // レビューの数を復活させる
+      const countLinkContainer = container.children[1];
+      if (countLinkContainer === undefined)
+        throw new Error('container.children[1] is not found');
+
+      const countContainer = countLinkContainer.querySelector('span');
+      if (!countContainer)
+        throw new Error(
+          "container.children[0].querySelector('span') is not found",
+        );
+
+      if (countContainer.textContent === '') {
+        const count = countLinkContainer.getAttribute('aria-label');
+        if (count === null)
+          throw new Error(
+            "countLinkContainer.getAttribute('aria-label') is null",
+          );
+        countContainer.append(count);
+
+        // パーセンテージがあれば消す
+      }
+
+      // TOOD: 個別 try{} したほうがいい？
     } catch (error) {
       console.error(error, container);
       continue;

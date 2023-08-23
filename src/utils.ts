@@ -13,8 +13,17 @@ export const rateToClassNameSuffix = (rate: number) => {
   }
 };
 
-export const isValidRate = (rateStr: string) =>
-  !!rateStr.match(/^[0-9](?:\.[0-9])?$/);
+export const isValidRate = (rateStr: string) => {
+  if (rateStr === '') return false;
+
+  const number = Number(rateStr);
+  return (
+    !Number.isNaN(number) &&
+    0 <= number &&
+    number <= 5 &&
+    (number * 10) % 1 === 0
+  );
+};
 
 // match patterns: https://developer.chrome.com/docs/extensions/mv3/match_patterns/
 export const matchPatternsToHostSuffix = (matchPatterns: string[]) => {

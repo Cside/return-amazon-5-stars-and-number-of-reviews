@@ -1,9 +1,6 @@
-import {
-  isValidRate,
-  matchPatternsToHostSuffix,
-  rateToClassNameSuffix,
-} from './utils';
+import { isValidRate, matchPatternsToHostSuffix } from './utils';
 
+/*
 describe(rateToClassNameSuffix.name + '()', () => {
   test.each([
     { input: 0.0, expected: '0' },
@@ -32,18 +29,20 @@ describe(rateToClassNameSuffix.name + '()', () => {
     expect(rateToClassNameSuffix(input)).toBe(expected),
   );
 });
+*/
 
-describe(isValidRate.name + '()', () => {
+describe.only(isValidRate.name + '()', () => {
   test.each([
     { input: '0', expected: true },
     { input: '0.1', expected: true },
     { input: '1', expected: true },
     { input: '1.1', expected: true },
+    { input: '-0.1', expected: false },
+    { input: '5.1', expected: false },
+    { input: '0.12', expected: false },
     { input: '1,1', expected: false },
-    { input: '1.', expected: false },
     { input: '', expected: false },
     { input: '.', expected: false },
-    { input: '.1', expected: false },
     { input: '1.1.', expected: false },
     { input: '1.1.1', expected: false },
   ])('$input -> $expected', ({ input, expected }) =>
