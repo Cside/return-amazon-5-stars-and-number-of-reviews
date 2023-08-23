@@ -1,4 +1,4 @@
-import _querySelectorAllWithHas from './hasPolyfill';
+import _querySelectorAllWithHas from 'polyfill-css-has';
 
 export const rateToClassNameSuffix = (rate: number) => {
   const tenfold = rate * 10;

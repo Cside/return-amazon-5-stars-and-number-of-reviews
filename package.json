@@ -36,5 +36,8 @@
     "vite": "^4.4.5",
     "vitest": "^0.34.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "polyfill-css-has": "github:Cside/polyfill-css-has"
+  }
 }

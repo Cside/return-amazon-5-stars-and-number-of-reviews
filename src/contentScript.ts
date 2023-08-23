@@ -4,13 +4,6 @@ import {
   rateToClassNameSuffix,
 } from './utils';
 
-/* タスク
-  - ✅parent container を変更
-  - ✅一桁星を元に戻す
-  - 隠れたレビュー数を表示
-  - % を隠す
-*/
-
 const main = () => {
   for (const container of querySelectorAllWithHas(
     `.a-row.a-size-small:has(> [aria-label])`,
