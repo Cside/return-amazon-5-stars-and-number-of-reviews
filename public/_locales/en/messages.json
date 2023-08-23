@@ -3,6 +3,6 @@
     "message": "Restore Amazon Review Stars & Count"
   },
   "DESCRIPTION": {
-    "message": "Restore the old style stars and number of reviews on Amazon"
+    "message": "Restore the 5 stars and number of reviews on Amazon"
   }
 }
