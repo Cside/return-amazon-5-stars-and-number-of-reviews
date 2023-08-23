@@ -57,13 +57,20 @@ const main = () => {
         throw new Error("countLinkContainer doesn't have aria-label attribute");
 
       const textContent = countContainer.textContent;
+      if (textContent === null)
+        throw new Error('countContainer.textContent is null');
+
       if (textContent === '') {
         countContainer.append(count);
-      } else if (textContent !== count) {
+      } else if (textContent !== count && textContent !== `(${count})`) {
         console.info(
           `[ClassicAmazonStars] Changed review count ${countContainer.textContent} -> ${count}`,
         );
-        countContainer.replaceChildren(count);
+        // 括弧だけニョキッと消えるモーションは結構ウザいので、括弧が付いてる場合は尊重する
+        // ニョキのウザさが原因で拡張消されたらかなわんので...。。
+        countContainer.replaceChildren(
+          textContent.startsWith('(') ? `(${count})` : count,
+        );
       }
 
       // Remove percentage sentence
@@ -99,7 +106,7 @@ chrome.runtime.onMessage.addListener(({ type }: { type: string }) => {
 
     clearInterval(id);
     main();
-  }, 100);
+  }, 50);
 });
 
 main();
