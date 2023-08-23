@@ -36,6 +36,7 @@ const main = () => {
       }
     } catch (error) {
       console.error(error, container);
+      if (import.meta.env.DEV) alert(error);
     }
 
     try {
@@ -74,6 +75,7 @@ const main = () => {
       }
     } catch (error) {
       console.error(error, container);
+      if (import.meta.env.DEV) alert(error);
     }
   }
 };
