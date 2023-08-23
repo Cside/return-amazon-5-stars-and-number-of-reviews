@@ -7,7 +7,7 @@ settings:
 dependencies:
   polyfill-css-has:
     specifier: github:Cside/polyfill-css-has
-    version: github.com/Cside/polyfill-css-has/458fa8351f1c7c48e30e68ebbe203e4dd54bb9d6
+    version: github.com/Cside/polyfill-css-has/2fb96d404d3d5543b17757f71250433b302ffe20
 
 devDependencies:
   '@crxjs/vite-plugin':
@@ -1822,12 +1822,6 @@ packages:
   /convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
     dev: true
-
-  /core-js@2.6.12:
-    resolution: {integrity: sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==}
-    deprecated: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
-    requiresBuild: true
-    dev: false
 
   /cosmiconfig@7.1.0:
     resolution: {integrity: sha512-AdmX6xUzdNASswsFtmwSt7Vj8po9IuqXm0UXz7QKPuEUmPB4XyjGfaAr2PSuELMwkRMVH1EpIkX5bTZGRB3eCA==}
@@ -4640,10 +4634,8 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  github.com/Cside/polyfill-css-has/458fa8351f1c7c48e30e68ebbe203e4dd54bb9d6:
-    resolution: {tarball: https://codeload.github.com/Cside/polyfill-css-has/tar.gz/458fa8351f1c7c48e30e68ebbe203e4dd54bb9d6}
+  github.com/Cside/polyfill-css-has/2fb96d404d3d5543b17757f71250433b302ffe20:
+    resolution: {tarball: https://codeload.github.com/Cside/polyfill-css-has/tar.gz/2fb96d404d3d5543b17757f71250433b302ffe20}
     name: polyfill-css-has
-    version: 1.0.0
-    dependencies:
-      core-js: 2.6.12
+    version: 1.0.1
     dev: false
