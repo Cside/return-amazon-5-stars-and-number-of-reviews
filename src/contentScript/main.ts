@@ -41,6 +41,7 @@ const main = () => {
 
     try {
       // Restore review count
+      // Change review count format: (1.1K+) -> 1,100
       const countLinkContainer = container.children[1];
       if (countLinkContainer === undefined)
         throw new Error('container.children[1] is not found');
@@ -51,27 +52,32 @@ const main = () => {
           "countLinkContainer.querySelector('span') is not found",
         );
 
-      if (countContainer.textContent === '') {
-        const count = countLinkContainer.getAttribute('aria-label');
-        if (count === null)
-          throw new Error(
-            "countLinkContainer doesn't have aria-label attribute",
-          );
+      const count = countLinkContainer.getAttribute('aria-label');
+      if (count === null)
+        throw new Error("countLinkContainer doesn't have aria-label attribute");
+
+      const textContent = countContainer.textContent;
+      if (textContent === '') {
         countContainer.append(count);
+      } else if (textContent !== count) {
+        console.info(
+          `[ClassicAmazonStars] Changed review count ${countContainer.textContent} -> ${count}`,
+        );
+        countContainer.replaceChildren(count);
+      }
 
-        // Remove percentage sentence
-        const percentageContainer = container.children[2];
-        if (percentageContainer) {
-          const percentage = percentageContainer.getAttribute('aria-label');
-          if (percentage === null)
-            throw new Error(
-              "percentageContainer doesn't have aria-label attribute",
-            );
-          if (!percentage.match(/%/))
-            throw new Error(`Invalid percentage message: ${percentage}`);
+      // Remove percentage sentence
+      const percentageContainer = container.children[2];
+      if (percentageContainer) {
+        const percentage = percentageContainer.getAttribute('aria-label');
+        if (percentage === null)
+          throw new Error(
+            "percentageContainer doesn't have aria-label attribute",
+          );
+        if (!percentage.match(/%/))
+          throw new Error(`Invalid percentage message: ${percentage}`);
 
-          percentageContainer.remove();
-        }
+        percentageContainer.remove();
       }
     } catch (error) {
       console.error(error, container);
