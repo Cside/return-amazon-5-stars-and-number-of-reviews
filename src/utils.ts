@@ -1,3 +1,5 @@
+import _querySelectorAllWithHas from './hasPolyfill';
+
 export const rateToClassNameSuffix = (rate: number) => {
   const tenfold = rate * 10;
   const ten = Math.floor(tenfold / 10);
@@ -26,3 +28,26 @@ export const matchPatternsToHostSuffix = (matchPatterns: string[]) => {
   }
   return [...new Set(suffixes)];
 };
+
+export const querySelectorAllWithHas = (
+  ...params: Parameters<typeof _querySelectorAllWithHas>
+) => _querySelectorAllWithHas(...params) as Element[];
+
+export const querySelectorWithHas = (
+  ...params: Parameters<typeof _querySelectorAllWithHas>
+) => querySelectorAllWithHas(...params)[0] ?? null;
+
+export const querySelectorAllWithRegexp = (
+  tagName: string,
+  attrNameRegExp: [string, RegExp],
+  dom?: Element,
+) => {
+  const [attrName, attrRegExp] = attrNameRegExp;
+  return [
+    ...(dom ?? document).querySelectorAll(`${tagName}[${attrName}]`),
+  ].filter((element) => element.getAttribute(attrName)?.match(attrRegExp));
+};
+
+export const querySelectorWithRegexp = (
+  ...params: Parameters<typeof querySelectorAllWithRegexp>
+) => querySelectorAllWithRegexp(...params)[0] ?? null;

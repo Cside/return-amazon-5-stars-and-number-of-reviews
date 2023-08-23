@@ -1,36 +1,59 @@
-import querySelectorAllWithHas from './hasPolyfill';
-import { isValidRate, rateToClassNameSuffix } from './utils';
+import {
+  isValidRate,
+  querySelectorAllWithHas,
+  rateToClassNameSuffix,
+} from './utils';
 
-const CLASS_NAME_SINGLE_STAR = 'puis-review-star-single';
+/* タスク
+  - ✅parent container を変更
+  - ✅一桁星を元に戻す
+  - 隠れたレビュー数を表示
+  - % を隠す
+*/
 
 const main = () => {
   for (const container of querySelectorAllWithHas(
-    `span[aria-label]:has(.${CLASS_NAME_SINGLE_STAR})`,
+    `.a-row.a-size-small:has(> [aria-label])`,
   )) {
-    const firstChild = container.firstChild;
-    if (firstChild === null) {
-      console.error('container.firstChild is not found', container);
-      continue;
-    }
-    if (firstChild.textContent === null) {
-      console.error('firstChild.textContent is null', firstChild);
-      continue;
-    }
-    const rate = firstChild.textContent.replace(',', '.');
+    try {
+      // 一桁星を元に戻す
+      // 旧デザインの場合は何もしない
+      const classNameSingleStar = 'puis-review-star-single';
+      const singleStar = container.querySelector(`i.${classNameSingleStar}`);
+      if (singleStar) {
+        const rateStarContainer = container.firstChild;
+        if (rateStarContainer === null)
+          throw new Error('container.firstChild is null');
 
-    if (!isValidRate(rate)) {
-      console.error(`rate is not valid: ${rate}`, container);
+        const rateContainer = rateStarContainer.firstChild;
+        if (rateContainer === null)
+          throw new Error('rateContainer.firstChild is not found');
+        if (rateContainer.textContent === null)
+          throw new Error('rateContainer.textContent is null');
+        if (!(rateContainer instanceof Element))
+          throw new Error('rateContainer is not a instance of Element');
+
+        const rate = rateContainer.textContent.replace(',', '.');
+        if (!isValidRate(rate)) throw new Error(`rate is not valid: ${rate}`);
+
+        singleStar.classList.remove(classNameSingleStar);
+        singleStar.classList.add(
+          'a-star-small-' + rateToClassNameSuffix(Number(rate)),
+        );
+      }
+
+      // // // restore number of reviews
+      // console.log(
+      //   querySelectorAllWithRegexp(
+      //     'span',
+      //     ['aria-label', new RegExp('^[0-9][0-9,.][0-9]$')],
+      //     container.parentElement as Element,
+      //   ),
+      // );
+    } catch (error) {
+      console.error(error, container);
       continue;
     }
-    const i = (container as Element).querySelector(
-      `i.${CLASS_NAME_SINGLE_STAR}`,
-    );
-    if (i === null) {
-      console.error(`i.${CLASS_NAME_SINGLE_STAR} is not found`, container);
-      continue;
-    }
-    i.classList.remove(CLASS_NAME_SINGLE_STAR);
-    i.classList.add('a-star-small-' + rateToClassNameSuffix(Number(rate)));
   }
 };
 
@@ -42,10 +65,7 @@ chrome.runtime.onMessage.addListener(({ type }: { type: string }) => {
       '.s-result-list-placeholder:has(> .a-spinner-wrapper)',
     )[0];
     // loading
-    if (
-      spinnerContainer &&
-      !(spinnerContainer as Element).classList.contains('aok-hidden')
-    )
+    if (spinnerContainer && !spinnerContainer.classList.contains('aok-hidden'))
       return;
 
     clearInterval(id);
