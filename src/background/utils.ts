@@ -1,5 +1,5 @@
 // match patterns: https://developer.chrome.com/docs/extensions/mv3/match_patterns/
-export const matchPatternsToHostSuffix = (matchPatterns: string[]) => {
+export const matchPatternsToHostSuffixes = (matchPatterns: string[]) => {
   const suffixes = [];
   for (const matchPattern of matchPatterns) {
     const matched = matchPattern.match(/^.+:\/\/(.+?)\//);
