@@ -1,8 +1,9 @@
 # Return Amazon Review Stars & Count ( Chrome Extension / Firefox Addon )
 
-[Chrome Web Store](https://chrome.google.com/webstore/detail/nahhbhpfahionfaobhlmoldlicdaoddg)
+## Install
 
-[Firefox Addon](https://addons.mozilla.org/ja/firefox/addon/classic-amazon-stars/)
+- [Edge / Chrome](https://chrome.google.com/webstore/detail/nahhbhpfahionfaobhlmoldlicdaoddg)
+- [Firefox](https://addons.mozilla.org/ja/firefox/addon/classic-amazon-stars/)
 
 <a href="https://chrome.google.com/webstore/detail/nahhbhpfahionfaobhlmoldlicdaoddg" target="_blank"><img src="https://user-images.githubusercontent.com/315510/262693816-9871ef8b-d7e7-4f0c-856d-7baa510f1715.png" width="500px" /></a>
 
