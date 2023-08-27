@@ -1,4 +1,4 @@
-# Return Amazon Review Stars & Count ( Chrome Extension / Firefox Addon )
+# Return Amazon 5 Stars & Number of Reviews ( Browser Extension )
 
 ## Install
 
