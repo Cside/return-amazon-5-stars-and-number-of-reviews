@@ -93,20 +93,32 @@ const main = () => {
   }
 };
 
-chrome.runtime.onMessage.addListener(({ type }: { type: string }) => {
-  if (type !== 'CHANGE_HISTORY') return;
+const resultBar = document.querySelector(
+  '[data-component-type="s-result-info-bar"]',
+);
+// if (location.pathname === '/s' && !resultBar) alert('resultBar is not found'); // for testing. FIXME
+if (resultBar) {
+  const observer = new MutationObserver(() => {
+    const id = setInterval(() => {
+      const spinnerContainer = querySelectorAllWithHas(
+        '.s-result-list-placeholder:has(> .a-spinner-wrapper)',
+      )[0];
+      // loading
+      if (
+        spinnerContainer &&
+        !spinnerContainer.classList.contains('aok-hidden')
+      )
+        return;
 
-  const id = setInterval(() => {
-    const spinnerContainer = querySelectorAllWithHas(
-      '.s-result-list-placeholder:has(> .a-spinner-wrapper)',
-    )[0];
-    // loading
-    if (spinnerContainer && !spinnerContainer.classList.contains('aok-hidden'))
-      return;
-
-    clearInterval(id);
+      clearInterval(id);
+      main();
+    }, 50);
     main();
-  }, 50);
-});
+  });
+  observer.observe(resultBar, {
+    childList: true,
+    subtree: true,
+  });
+}
 
 main();
