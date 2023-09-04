@@ -2,7 +2,8 @@
 
 ## Install
 
-- [Edge / Chrome](https://chrome.google.com/webstore/detail/nahhbhpfahionfaobhlmoldlicdaoddg)
+- [Chrome](https://chrome.google.com/webstore/detail/nahhbhpfahionfaobhlmoldlicdaoddg)
+- [Edge](https://microsoftedge.microsoft.com/addons/detail/mpjnchaiiljgjanbceaoampplmeeibdh)
 - [Firefox](https://addons.mozilla.org/firefox/addon/classic-amazon-stars/)
 - [Greasy Fork](https://greasyfork.org/scripts/474149-return-amazon-5-stars-number-of-reviews)
 
