@@ -1,6 +1,6 @@
-import { matchPatternsToHostSuffix } from './utils';
+import { matchPatternsToHostSuffixes } from './utils';
 
-describe(matchPatternsToHostSuffix.name + '()', () => {
+describe(matchPatternsToHostSuffixes.name + '()', () => {
   test.each([
     {
       name: 'glob',
@@ -23,6 +23,6 @@ describe(matchPatternsToHostSuffix.name + '()', () => {
       expected: ['b.hatena.ne.jp'],
     },
   ])('$name', ({ input, expected }) =>
-    expect(matchPatternsToHostSuffix(input)).toEqual(expected),
+    expect(matchPatternsToHostSuffixes(input)).toEqual(expected),
   );
 });

@@ -1,0 +1,62 @@
+name: Test
+
+on:
+  - push
+  - pull_request_target
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-latest
+    if: |
+      (github.event_name == 'pull_request_target' && github.actor == 'dependabot[bot]') ||
+      (github.event_name == 'push'                && github.actor != 'dependabot[bot]')
+    steps:
+      - if: ${{ github.event_name != 'pull_request_target' }}
+        uses: actions/checkout@v3
+
+      - if: ${{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 8
+
+      - id: pnpm-cache
+        run: |
+          echo "PNPM_CACHE_DIR=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.PNPM_CACHE_DIR }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - run: pnpm install --no-frozen-lockfile
+
+      - run: pnpm run check
+
+      # https://action-slack.netlify.app/usage/
+      - uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,ref,workflow,took
+          username: Github Actions
+          icon_emoji: ':github:'
+          text: ${{ job.status }}
+          author_name: ''
+          mention: channel
+          if_mention: failure
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()
