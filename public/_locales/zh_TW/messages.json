@@ -1,4 +1,7 @@
 {
+  "NAME": {
+    "message": "Return Amazon 5 Stars & Number of Reviews"
+  },
   "DESCRIPTION": {
     "message": "在亞馬遜搜尋頁面上再次顯示5顆星和評論數量。"
   }
