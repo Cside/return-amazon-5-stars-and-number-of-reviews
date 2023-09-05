@@ -1,4 +1,7 @@
 {
+  "NAME": {
+    "message": "Return Amazon 5 Stars & Number of Reviews"
+  },
   "DESCRIPTION": {
     "message": "Amazon arama sayfalarında 5 yıldızı ve yorum sayısını tekrar gösterin."
   }
