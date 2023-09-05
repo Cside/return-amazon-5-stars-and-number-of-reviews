@@ -1,4 +1,7 @@
 {
+  "NAME": {
+    "message": "Return Amazon 5 Stars & Number of Reviews"
+  },
   "DESCRIPTION": {
     "message": "Zeigen Sie die 5 Sterne und die Anzahl der Rezensionen auf den Amazon-Suchseiten erneut an."
   }
