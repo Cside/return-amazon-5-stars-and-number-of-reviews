@@ -1,12 +1,15 @@
-# Classic Amazon Five Stars ( Chrome Extension / Firefox Addon )
+# Return Amazon 5 Stars & Number of Reviews ( Browser Extension )
 
-[Chrome Web Store](https://chrome.google.com/webstore/detail/nahhbhpfahionfaobhlmoldlicdaoddg)
+## Install
 
-[Firefox Addon](https://addons.mozilla.org/ja/firefox/addon/classic-amazon-stars/)
+- [Chrome](https://chrome.google.com/webstore/detail/nahhbhpfahionfaobhlmoldlicdaoddg)
+- [Edge](https://microsoftedge.microsoft.com/addons/detail/mpjnchaiiljgjanbceaoampplmeeibdh)
+- [Firefox](https://addons.mozilla.org/firefox/addon/classic-amazon-stars/)
+- [Greasy Fork](https://greasyfork.org/scripts/474149-return-amazon-5-stars-number-of-reviews)
 
 <a href="https://chrome.google.com/webstore/detail/nahhbhpfahionfaobhlmoldlicdaoddg" target="_blank"><img src="https://user-images.githubusercontent.com/315510/262693816-9871ef8b-d7e7-4f0c-856d-7baa510f1715.png" width="500px" /></a>
 
-Restore the 5 stars and number of reviews on Amazon
+Bring back the 5 stars and number of reviews on Amazon
 
 ## How to Build
 
@@ -17,13 +20,13 @@ pnpm run build
 
 ## How to Send Pull Requests
 
-⚠️ If you have a feature request, please discuss it with me on [/issues](https://github.com/Cside/chrome-classic-amazon-stars/issues) before writing your code.
+⚠️ If you have a feature request, please discuss it with me on [/issues](https://github.com/Cside/return-amazon-5-stars-and-number-of-reviews/issues) before writing your code.
 
 Create a branch from `develop` and make a pull request to `develop` .
 
 ## Release Notes
 
-[/releases](https://github.com/Cside/chrome-classic-amazon-stars/releases)
+[/releases](https://github.com/Cside/return-amazon-5-stars-and-number-of-reviews/releases)
 
 ## License
 

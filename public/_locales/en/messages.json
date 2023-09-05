@@ -1,8 +1,8 @@
 {
   "NAME": {
-    "message": "Restore Amazon Review Stars & Count"
+    "message": "Return Amazon 5 Stars & Number of Reviews"
   },
   "DESCRIPTION": {
-    "message": "Restore the 5 stars and number of reviews on Amazon"
+    "message": "Bring back the 5 stars and number of reviews on Amazon search pages"
   }
 }
