@@ -1,4 +1,7 @@
 {
+  "NAME": {
+    "message": "Return Amazon 5 Stars & Number of Reviews"
+  },
   "DESCRIPTION": {
     "message": "عرض النجوم الخمسة وعدد التقييمات على صفحات البحث في أمازون مرة أخرى"
   }
