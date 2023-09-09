@@ -1,38 +1,27 @@
-import {
-  isValidRate,
-  querySelectorAllWithHas,
-  rateToClassNameSuffix,
-} from './utils';
+import { isValidRate, querySelectorAllWithHas, rateToClassNameSuffix } from './utils';
 
 const main = () => {
   // HTML structure:
   //  https://www.notion.so/c7a89d18be974588a0ef9f8d5a6eacb1#88338a6e482248489c849129896c9e2f
-  for (const container of querySelectorAllWithHas(
-    `.a-row.a-size-small:has(> [aria-label])`,
-  )) {
+  for (const container of querySelectorAllWithHas(`.a-row.a-size-small:has(> [aria-label])`)) {
     try {
       // Change 1 -> 5 stars
       const classNameSingleStar = 'puis-review-star-single';
       const singleStar = container.querySelector(`i.${classNameSingleStar}`);
       if (singleStar) {
         const rateStarContainer = container.firstElementChild;
-        if (!rateStarContainer)
-          throw new Error('container.firstElementChild is null');
+        if (!rateStarContainer) throw new Error('container.firstElementChild is null');
 
         const rateContainer = rateStarContainer.firstElementChild;
-        if (!rateContainer)
-          throw new Error('rateContainer.firstChild is not found');
+        if (!rateContainer) throw new Error('rateContainer.firstChild is not found');
         const textContent = rateContainer.textContent;
-        if (textContent === null)
-          throw new Error('rateContainer.textContent is null');
+        if (textContent === null) throw new Error('rateContainer.textContent is null');
 
         const rate = textContent.replace(',', '.');
         if (!isValidRate(rate)) throw new Error(`Invalid rate: ${rate}`);
 
         singleStar.classList.remove(classNameSingleStar);
-        singleStar.classList.add(
-          'a-star-small-' + rateToClassNameSuffix(Number(rate)),
-        );
+        singleStar.classList.add('a-star-small-' + rateToClassNameSuffix(Number(rate)));
       }
     } catch (error) {
       console.error(error, container);
@@ -43,22 +32,16 @@ const main = () => {
       // Restore review count
       // Change review count format: (1.1K+) -> 1,100
       const countLinkContainer = container.children[1];
-      if (countLinkContainer === undefined)
-        throw new Error('container.children[1] is not found');
+      if (countLinkContainer === undefined) throw new Error('container.children[1] is not found');
 
       const countContainer = countLinkContainer.querySelector('span');
-      if (!countContainer)
-        throw new Error(
-          "countLinkContainer.querySelector('span') is not found",
-        );
+      if (!countContainer) throw new Error("countLinkContainer.querySelector('span') is not found");
 
       const count = countLinkContainer.getAttribute('aria-label');
-      if (count === null)
-        throw new Error("countLinkContainer doesn't have aria-label attribute");
+      if (count === null) throw new Error("countLinkContainer doesn't have aria-label attribute");
 
       const textContent = countContainer.textContent;
-      if (textContent === null)
-        throw new Error('countContainer.textContent is null');
+      if (textContent === null) throw new Error('countContainer.textContent is null');
 
       if (textContent === '') {
         countContainer.append(count);
@@ -68,9 +51,7 @@ const main = () => {
         );
         // 括弧だけニョキッと消えるモーションは結構ウザいので、括弧が付いてる場合は尊重する
         // ニョキのウザさが原因で拡張消されたらかなわんので...。。
-        countContainer.replaceChildren(
-          textContent.startsWith('(') ? `(${count})` : count,
-        );
+        countContainer.replaceChildren(textContent.startsWith('(') ? `(${count})` : count);
       }
 
       // Remove percentage sentence
@@ -78,11 +59,8 @@ const main = () => {
       if (percentageContainer) {
         const percentage = percentageContainer.getAttribute('aria-label');
         if (percentage === null)
-          throw new Error(
-            "percentageContainer doesn't have aria-label attribute",
-          );
-        if (!percentage.match(/%/))
-          throw new Error(`Invalid percentage message: ${percentage}`);
+          throw new Error("percentageContainer doesn't have aria-label attribute");
+        if (!percentage.match(/%/)) throw new Error(`Invalid percentage message: ${percentage}`);
 
         percentageContainer.remove();
       }
@@ -101,8 +79,7 @@ chrome.runtime.onMessage.addListener(({ type }: { type: string }) => {
       '.s-result-list-placeholder:has(> .a-spinner-wrapper)',
     )[0];
     // loading
-    if (spinnerContainer && !spinnerContainer.classList.contains('aok-hidden'))
-      return;
+    if (spinnerContainer && !spinnerContainer.classList.contains('aok-hidden')) return;
 
     clearInterval(id);
     main();
