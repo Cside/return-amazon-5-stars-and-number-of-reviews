@@ -7,7 +7,7 @@ settings:
 dependencies:
   polyfill-css-has:
     specifier: github:Cside/polyfill-css-has
-    version: github.com/Cside/polyfill-css-has/f60dcf5935d344905180be6413067543e2283d8c
+    version: github.com/Cside/polyfill-css-has/39dbf3872045a3ab9b2c239fee4112a959652568
 
 devDependencies:
   '@crxjs/vite-plugin':
@@ -4634,8 +4634,8 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  github.com/Cside/polyfill-css-has/f60dcf5935d344905180be6413067543e2283d8c:
-    resolution: {tarball: https://codeload.github.com/Cside/polyfill-css-has/tar.gz/f60dcf5935d344905180be6413067543e2283d8c}
+  github.com/Cside/polyfill-css-has/39dbf3872045a3ab9b2c239fee4112a959652568:
+    resolution: {tarball: https://codeload.github.com/Cside/polyfill-css-has/tar.gz/39dbf3872045a3ab9b2c239fee4112a959652568}
     name: polyfill-css-has
-    version: 1.0.2
+    version: 1.0.3
     dev: false
