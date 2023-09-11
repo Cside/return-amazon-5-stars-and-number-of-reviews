@@ -3,6 +3,10 @@
     "message": "Return Amazon 5 Stars & Number of Reviews"
   },
   "DESCRIPTION": {
-    "message": "Bring back the 5 stars and number of reviews on Amazon search pages"
+    "message": "Bring back the 5 stars and number of reviews on Amazon search pages",
+    "donation_foundThisHelpful": "Found This Helpful?",
+    "donation_pleaseDonate": "Your donation will help me to continue to develop this extension and make it even better.",
+    "donation_donate": "Donate",
+    "rateIt": "Rate It"
   }
 }
