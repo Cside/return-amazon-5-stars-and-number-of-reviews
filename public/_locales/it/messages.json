@@ -1,8 +1,20 @@
 {
-  "NAME": {
+  "extensionName": {
     "message": "Return Amazon 5 Stars & Number of Reviews"
   },
-  "DESCRIPTION": {
+  "extensionDescription": {
     "message": "Mostra le 5 stelle e il numero di recensioni sulle pagine di ricerca di Amazon di nuovo."
+  },
+  "donation_heading": {
+    "message": "Found This Helpful?"
+  },
+  "donation_description": {
+    "message": "Your donation will help me to continue to develop this extension and make it even better."
+  },
+  "donation_donate": {
+    "message": "Donate"
+  },
+  "rateIt": {
+    "message": "Rate It"
   }
 }

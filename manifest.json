@@ -1,9 +1,13 @@
 {
   "version": "0.3.6",
-  "name": "__MSG_NAME__",
-  "description": "__MSG_DESCRIPTION__",
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
   "manifest_version": 3,
   "default_locale": "en",
+  "action": {
+    "default_icon": "images/icon38.png",
+    "default_popup": "popup.html"
+  },
   "icons": {
     "16": "images/icon16.png",
     "32": "images/icon32.png",
