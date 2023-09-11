@@ -10,7 +10,7 @@ dependencies:
     version: 5.3.1(@popperjs/core@2.11.8)
   browser-extension-utils:
     specifier: github:Cside/browser-extension-utils
-    version: github.com/Cside/browser-extension-utils/3968deb54b0c81c6d11c9416541cf68009a5a80e
+    version: github.com/Cside/browser-extension-utils/68ccd233e22735a737b69710f3993524b28ed421
   polyfill-css-has:
     specifier: github:Cside/polyfill-css-has
     version: github.com/Cside/polyfill-css-has/39dbf3872045a3ab9b2c239fee4112a959652568
@@ -4797,8 +4797,8 @@ packages:
     resolution: {integrity: sha512-wvWkphh5WQsJbVk1tbx1l1Ly4yg+XecD+Mq280uBGt9wa5BKSWf4Mhp6GmrkPixhMxmabYY7RbzlwVP32pbGCg==}
     dev: false
 
-  github.com/Cside/browser-extension-utils/3968deb54b0c81c6d11c9416541cf68009a5a80e:
-    resolution: {tarball: https://codeload.github.com/Cside/browser-extension-utils/tar.gz/3968deb54b0c81c6d11c9416541cf68009a5a80e}
+  github.com/Cside/browser-extension-utils/68ccd233e22735a737b69710f3993524b28ed421:
+    resolution: {tarball: https://codeload.github.com/Cside/browser-extension-utils/tar.gz/68ccd233e22735a737b69710f3993524b28ed421}
     name: browser-extension-utils
     version: 0.0.2
     hasBin: true

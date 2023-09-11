@@ -9,11 +9,15 @@ export default defineConfig({
   test: {
     globals: true,
   },
-  server: {
-    strictPort: true,
-    port: 5173,
-    hmr: {
-      clientPort: 5173,
-    },
-  },
+  ...(process.env.NODE_ENV === 'test'
+    ? {}
+    : {
+        server: {
+          strictPort: true,
+          port: 5173,
+          hmr: {
+            clientPort: 5173,
+          },
+        },
+      }),
 });
