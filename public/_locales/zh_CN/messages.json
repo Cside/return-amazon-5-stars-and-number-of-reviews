@@ -5,10 +5,10 @@
   "extensionDescription": {
     "message": "在亚马逊搜索页面上再次显示5星和评论数量。"
   },
-  "donation_foundThisHelpful": {
+  "donation_heading": {
     "message": "Found This Helpful?"
   },
-  "donation_pleaseDonate": {
+  "donation_description": {
     "message": "Your donation will help me to continue to develop this extension and make it even better."
   },
   "donation_donate": {

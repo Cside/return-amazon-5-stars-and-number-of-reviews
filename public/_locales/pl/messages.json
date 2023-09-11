@@ -5,10 +5,10 @@
   "extensionDescription": {
     "message": "Wyświetl ponownie 5 gwiazdek i liczbę opinii na stronach wyszukiwania Amazon."
   },
-  "donation_foundThisHelpful": {
+  "donation_heading": {
     "message": "Found This Helpful?"
   },
-  "donation_pleaseDonate": {
+  "donation_description": {
     "message": "Your donation will help me to continue to develop this extension and make it even better."
   },
   "donation_donate": {

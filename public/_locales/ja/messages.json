@@ -5,10 +5,10 @@
   "extensionDescription": {
     "message": "Amazon の 5 つの星と、レビュー（評価）の件数を再び表示します"
   },
-  "donation_foundThisHelpful": {
+  "donation_heading": {
     "message": "この拡張がお役に立ちましたか？"
   },
-  "donation_pleaseDonate": {
+  "donation_description": {
     "message": "この拡張の開発継続と発展のため、コーヒー 1 杯分ご寄付いただけますと嬉しいです。"
   },
   "donation_donate": {
