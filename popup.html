@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script type="module" src="/src/popup.ts"></script>
+  </head>
+  <body style="width: 400px">
+    <div class="container-fluid mt-2">
+      <h1 class="d-flex align-items-center gap-2 fs-2 locale">__MSG_extensionName__</h1>
+
+      <img src="./images/thumbnail-middle.png" width="300px" />
+      <section class="mb-3">
+        <h2 class="fs-3">Usage</h2>
+        <p class="m-3">
+          This extension is enabled automatically. When you visit to a Amazon search page, its
+          rating appearance of reviews will be automatically changed to the previous style.
+        </p>
+      </section>
+      <section class="my-3">
+        <h2 class="fs-3">__MSG_donation_heading__</h2>
+        <p class="m-3">__MSG_donation_description__</p>
+        <div class="d-flex gap-3 ms-3">
+          <a
+            href="https://ko-fi.com/cside?_from=amazon-stars"
+            target="_blank"
+            rel="noreferrer"
+            class="p-2 text-body fw-bold rounded text-decoration-none d-flex align-items-center"
+            style="background-color: #ffdd02"
+          >
+            ❤️ __MSG_donation_donate__
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            class="review-link p-2 text-body fw-bold border border-dark rounded text-decoration-none d-flex align-items-center"
+          >
+            __MSG_rateIt__
+          </a>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

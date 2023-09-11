@@ -1,19 +1,13 @@
 import _querySelectorAllWithHas from 'polyfill-css-has';
 
-export const querySelectorAllWithHas = (
-  ...params: Parameters<typeof _querySelectorAllWithHas>
-) => _querySelectorAllWithHas(...params) as Element[];
+export const querySelectorAllWithHas = (...params: Parameters<typeof _querySelectorAllWithHas>) =>
+  _querySelectorAllWithHas(...params) as Element[];
 
 export const isValidRate = (rateStr: string) => {
   if (rateStr === '') return false;
 
   const number = Number(rateStr);
-  return (
-    !Number.isNaN(number) &&
-    0 <= number &&
-    number <= 5 &&
-    (number * 10) % 1 === 0
-  );
+  return !Number.isNaN(number) && 0 <= number && number <= 5 && (number * 10) % 1 === 0;
 };
 
 export const rateToClassNameSuffix = (rate: number) => {

@@ -1,8 +1,7 @@
 import manifest from '../../manifest.json';
 import { matchPatternsToHostSuffixes } from './utils';
 
-if (manifest.content_scripts[0] === undefined)
-  throw new Error('manifest.content_scripts is empty');
+if (manifest.content_scripts[0] === undefined) throw new Error('manifest.content_scripts is empty');
 
 chrome.webNavigation.onHistoryStateUpdated.addListener(
   async (detail) => {
@@ -21,8 +20,8 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(
     }
   },
   {
-    url: matchPatternsToHostSuffixes(manifest.content_scripts[0].matches).map(
-      (hostSuffix) => ({ hostSuffix }),
-    ),
+    url: matchPatternsToHostSuffixes(manifest.content_scripts[0].matches).map((hostSuffix) => ({
+      hostSuffix,
+    })),
   },
 );

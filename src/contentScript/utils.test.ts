@@ -14,9 +14,7 @@ describe(isValidRate.name + '()', () => {
     { input: '.', expected: false },
     { input: '1.1.', expected: false },
     { input: '1.1.1', expected: false },
-  ])('$input -> $expected', ({ input, expected }) =>
-    expect(isValidRate(input)).toBe(expected),
-  );
+  ])('$input -> $expected', ({ input, expected }) => expect(isValidRate(input)).toBe(expected));
 });
 
 describe(rateToClassNameSuffix.name + '()', () => {

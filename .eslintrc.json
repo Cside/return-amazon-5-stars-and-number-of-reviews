@@ -18,10 +18,7 @@
   "rules": {
     "no-trailing-spaces": "error",
     "@typescript-eslint/no-empty-function": "off",
-    "@typescript-eslint/no-floating-promises": [
-      "error",
-      { "ignoreIIFE": true }
-    ],
+    "@typescript-eslint/no-floating-promises": ["error", { "ignoreIIFE": true }],
     "jest/valid-title": "off",
     "jest/no-conditional-expect": "off"
   }
