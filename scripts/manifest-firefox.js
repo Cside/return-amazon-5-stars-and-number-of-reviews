@@ -12,6 +12,9 @@ manifest.browser_specific_settings = {
   },
 };
 
+manifest.browser_action = manifest.action;
+delete manifest.action;
+
 delete manifest.web_accessible_resources;
 
 console.info(JSON.stringify(manifest, null, 2));
