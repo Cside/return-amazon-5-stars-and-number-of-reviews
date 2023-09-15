@@ -13,7 +13,7 @@ Bring back the 5 stars and number of reviews on Amazon
 
 ## How to Build
 
-```
+```bash
 cat << EOF > .npmrc
 //npm.pkg.github.com/:_authToken=<Your Github access token that includes read:packages permission>
 @cside:registry=https://npm.pkg.github.com/
