@@ -1,8 +1,10 @@
 name: Test
 
 on:
-  - push
-  - pull_request_target
+  push:
+    branches:
+      - '*'
+  pull_request_target:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}
