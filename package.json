@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build:chrome": "tsc && vite build",
+    "build:chrome": "vite build",
     "build:firefox": "./scripts/build-firefox.sh",
     "package": "run-s package:*",
     "package:chrome": "./scripts/package-chrome.sh",
