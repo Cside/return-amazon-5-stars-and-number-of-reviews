@@ -28,6 +28,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@cside'
 
       - uses: pnpm/action-setup@v2.2.4
         with:
@@ -44,9 +46,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - env:
-          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-        run: |
+      - run: |
           mkdir -p ~/.ssh
           echo "$PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
           chmod 700 ~/.ssh/id_rsa
@@ -54,6 +54,9 @@ jobs:
           ssh-add ~/.ssh/id_rsa
           ssh-keyscan -H github.com >> ~/.ssh/known_hosts
           pnpm install --no-frozen-lockfile
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          NODE_AUTH_TOKEN: ${{ secrets.WRITABLE_TOKEN }}
 
       - run: pnpm run check
 
