@@ -6,14 +6,14 @@ settings:
 
 dependencies:
   bootstrap:
-    specifier: ^5.3.1
-    version: 5.3.1(@popperjs/core@2.11.8)
+    specifier: ^5.3.2
+    version: 5.3.2(@popperjs/core@2.11.8)
   browser-extension-utils:
     specifier: github:Cside/browser-extension-utils
-    version: github.com/Cside/browser-extension-utils/68ccd233e22735a737b69710f3993524b28ed421
+    version: git/github.com+Cside/browser-extension-utils/09fe17f33f7b1f89610a1062cbf51d89731e5f46
   polyfill-css-has:
     specifier: github:Cside/polyfill-css-has
-    version: github.com/Cside/polyfill-css-has/39dbf3872045a3ab9b2c239fee4112a959652568
+    version: git/github.com+Cside/polyfill-css-has/39dbf3872045a3ab9b2c239fee4112a959652568
 
 devDependencies:
   '@crxjs/vite-plugin':
@@ -1611,8 +1611,8 @@ packages:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
     dev: true
 
-  /bootstrap@5.3.1(@popperjs/core@2.11.8):
-    resolution: {integrity: sha512-jzwza3Yagduci2x0rr9MeFSORjcHpt0lRZukZPZQJT1Dth5qzV7XcgGqYzi39KGAVYR8QEDVoO0ubFKOxzMG+g==}
+  /bootstrap@5.3.2(@popperjs/core@2.11.8):
+    resolution: {integrity: sha512-D32nmNWiQHo94BKHLmOrdjlL05q1c8oxbtBphQFb9Z5to6eGRDCm0QgeaZ4zFBHzfg2++rqa2JkqCcxDy0sH0g==}
     peerDependencies:
       '@popperjs/core': ^2.11.8
     dependencies:
@@ -4797,10 +4797,10 @@ packages:
     resolution: {integrity: sha512-wvWkphh5WQsJbVk1tbx1l1Ly4yg+XecD+Mq280uBGt9wa5BKSWf4Mhp6GmrkPixhMxmabYY7RbzlwVP32pbGCg==}
     dev: false
 
-  github.com/Cside/browser-extension-utils/68ccd233e22735a737b69710f3993524b28ed421:
-    resolution: {tarball: https://codeload.github.com/Cside/browser-extension-utils/tar.gz/68ccd233e22735a737b69710f3993524b28ed421}
-    name: browser-extension-utils
-    version: 0.0.2
+  git/github.com+Cside/browser-extension-utils/09fe17f33f7b1f89610a1062cbf51d89731e5f46:
+    resolution: {commit: 09fe17f33f7b1f89610a1062cbf51d89731e5f46, repo: git@github.com:Cside/browser-extension-utils.git, type: git}
+    name: '@cside/browser-extension-utils'
+    version: 0.0.8
     hasBin: true
     dependencies:
       colorette: 2.0.20
@@ -4808,8 +4808,8 @@ packages:
       zod: 3.22.2
     dev: false
 
-  github.com/Cside/polyfill-css-has/39dbf3872045a3ab9b2c239fee4112a959652568:
-    resolution: {tarball: https://codeload.github.com/Cside/polyfill-css-has/tar.gz/39dbf3872045a3ab9b2c239fee4112a959652568}
+  git/github.com+Cside/polyfill-css-has/39dbf3872045a3ab9b2c239fee4112a959652568:
+    resolution: {commit: 39dbf3872045a3ab9b2c239fee4112a959652568, repo: git@github.com:Cside/polyfill-css-has.git, type: git}
     name: polyfill-css-has
     version: 1.0.3
     dev: false
