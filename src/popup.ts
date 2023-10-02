@@ -1,5 +1,5 @@
+import { addReviewUrls, localizeHtml } from '@cside/browser-extension-utils';
 import 'bootstrap/dist/css/bootstrap.css';
-import { addReviewUrls, localizeHtml } from 'browser-extension-utils';
 import ids from '../ids.json';
 
 document.addEventListener('DOMContentLoaded', () => {
