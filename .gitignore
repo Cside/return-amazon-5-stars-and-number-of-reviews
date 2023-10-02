@@ -17,6 +17,7 @@ dist-ssr
 *.local
 
 .git-pr-release
+.npmrc
 
 # Editor directories and files
 .vscode/*

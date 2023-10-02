@@ -13,7 +13,14 @@ Bring back the 5 stars and number of reviews on Amazon
 
 ## How to Build
 
-```
+Replace `YOUR_TOKEN` with your Github access token that includes `read:packages` permission
+
+```bash
+cat << EOF > .npmrc
+//npm.pkg.github.com/:_authToken=YOUR_TOKEN
+@cside:registry=https://npm.pkg.github.com/
+EOF
+
 pnpm install
 pnpm run build
 ```

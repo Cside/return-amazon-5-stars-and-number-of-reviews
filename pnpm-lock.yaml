@@ -5,15 +5,15 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@cside/browser-extension-utils':
+    specifier: ^0.0.6
+    version: 0.0.6
   bootstrap:
     specifier: ^5.3.1
     version: 5.3.1(@popperjs/core@2.11.8)
-  browser-extension-utils:
-    specifier: github:Cside/browser-extension-utils
-    version: git/github.com+Cside/browser-extension-utils/09fe17f33f7b1f89610a1062cbf51d89731e5f46
   polyfill-css-has:
     specifier: github:Cside/polyfill-css-has
-    version: git/github.com+Cside/polyfill-css-has/39dbf3872045a3ab9b2c239fee4112a959652568
+    version: github.com/Cside/polyfill-css-has/39dbf3872045a3ab9b2c239fee4112a959652568
 
 devDependencies:
   '@crxjs/vite-plugin':
@@ -472,6 +472,15 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@cside/browser-extension-utils@0.0.6:
+    resolution: {integrity: sha512-O6jni8Sk2+3RAlcwISfcVkLy3G7hpY9f2wOrBPF+eHjlGbvbD3Ea0JfurboMI5ApVoj36FKai+6EWOOaGw4bqw==, tarball: https://npm.pkg.github.com/download/@cside/browser-extension-utils/0.0.6/ddd40eabaff58c446991f0b5bb2a337bc526a855}
+    hasBin: true
+    dependencies:
+      colorette: 2.0.20
+      open: 9.1.0
+      zod: 3.22.2
+    dev: false
 
   /@esbuild/android-arm64@0.18.20:
     resolution: {integrity: sha512-Nz4rJcchGDtENV0eMKUNa6L12zz2zBDXuhj/Vjh18zGqB44Bi7MBMSXjgunJgjRhCmKOjnPuZp4Mb6OKqtMHLQ==}
@@ -4797,19 +4806,8 @@ packages:
     resolution: {integrity: sha512-wvWkphh5WQsJbVk1tbx1l1Ly4yg+XecD+Mq280uBGt9wa5BKSWf4Mhp6GmrkPixhMxmabYY7RbzlwVP32pbGCg==}
     dev: false
 
-  git/github.com+Cside/browser-extension-utils/09fe17f33f7b1f89610a1062cbf51d89731e5f46:
-    resolution: {commit: 09fe17f33f7b1f89610a1062cbf51d89731e5f46, repo: git@github.com:Cside/browser-extension-utils.git, type: git}
-    name: '@cside/browser-extension-utils'
-    version: 0.0.8
-    hasBin: true
-    dependencies:
-      colorette: 2.0.20
-      open: 9.1.0
-      zod: 3.22.2
-    dev: false
-
-  git/github.com+Cside/polyfill-css-has/39dbf3872045a3ab9b2c239fee4112a959652568:
-    resolution: {commit: 39dbf3872045a3ab9b2c239fee4112a959652568, repo: git@github.com:Cside/polyfill-css-has.git, type: git}
+  github.com/Cside/polyfill-css-has/39dbf3872045a3ab9b2c239fee4112a959652568:
+    resolution: {tarball: https://codeload.github.com/Cside/polyfill-css-has/tar.gz/39dbf3872045a3ab9b2c239fee4112a959652568}
     name: polyfill-css-has
     version: 1.0.3
     dev: false
