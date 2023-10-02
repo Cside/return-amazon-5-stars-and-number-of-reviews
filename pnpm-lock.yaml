@@ -59,7 +59,7 @@ devDependencies:
     specifier: ^4.4.5
     version: 4.4.9(@types/node@20.5.9)
   vitest:
-    specifier: ^0.34.3
+    specifier: ^0.34.6
     version: 0.34.6
 
 packages:
@@ -1447,7 +1447,7 @@ packages:
     dependencies:
       magic-string: 0.30.3
       pathe: 1.1.1
-      pretty-format: 29.6.3
+      pretty-format: 29.7.0
     dev: true
 
   /@vitest/spy@0.34.6:
@@ -1461,7 +1461,7 @@ packages:
     dependencies:
       diff-sequences: 29.6.3
       loupe: 2.3.6
-      pretty-format: 29.6.3
+      pretty-format: 29.7.0
     dev: true
 
   /@webcomponents/custom-elements@1.6.0:
@@ -3987,8 +3987,8 @@ packages:
     hasBin: true
     dev: true
 
-  /pretty-format@29.6.3:
-    resolution: {integrity: sha512-ZsBgjVhFAj5KeK+nHfF1305/By3lechHQSMWCTl8iHSbfOm2TN5nHEtFc/+W7fAyUeCs2n5iow72gld4gW0xDw==}
+  /pretty-format@29.7.0:
+    resolution: {integrity: sha512-Pdlw/oPxN+aXdmM9R00JVC9WVFoCLTKJvDVLgmJ+qAffBMxsV85l/Lu7sNx4zSzPyoL2euImuEwHhOXdEgNFZQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       '@jest/schemas': 29.6.3
